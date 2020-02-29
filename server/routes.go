@@ -5,6 +5,7 @@ import (
 )
 
 func setRoutes(route *httprouter.Router) {
+	route.HandlerFunc("GET", "/", logging(welcomePage))
 	route.HandlerFunc("GET", "/user", logging(listUsers))
 	route.HandlerFunc("POST", "/user", logging(createUser))
 	route.HandlerFunc("DELETE", "/user", logging(deleteAllUsers))

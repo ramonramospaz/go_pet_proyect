@@ -2,7 +2,7 @@ package server
 
 import (
 	"encoding/json"
-	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 	"strconv"
@@ -11,8 +11,9 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
-func hello(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-	fmt.Fprintf(w, "Hola mi mundillo")
+func welcomePage(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.ParseFiles("server/templates/main.html"))
+	tmpl.Execute(w, nil)
 }
 
 func logging(f http.HandlerFunc) http.HandlerFunc {
