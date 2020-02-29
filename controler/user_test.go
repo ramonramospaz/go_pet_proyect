@@ -86,3 +86,7 @@ func TestFindUserById(t *testing.T) {
 		t.Error("There were not user with that ID")
 	}
 }
+
+func TestFindAndDeleteUserByID(t *testing.T) {
+
+}

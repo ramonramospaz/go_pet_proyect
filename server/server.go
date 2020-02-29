@@ -3,6 +3,7 @@ package server
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -13,9 +14,18 @@ func StartServer() {
 	mux := httprouter.New()
 	setRoutes(mux)
 	server := http.Server{
-		Addr:    "127.0.0.1:8080",
+		Addr:    getAdressAndPort(),
 		Handler: mux,
 	}
 	log.Printf("Addr:%v\n", server.Addr)
 	server.ListenAndServe()
+}
+
+func getAdressAndPort() string {
+	var port = os.Getenv("PORT")
+	if port == "" {
+		port = "8081"
+		log.Println("INFO: No PORT enviroment variable, use default 8081 ")
+	}
+	return ":" + port
 }
