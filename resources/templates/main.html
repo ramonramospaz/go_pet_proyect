@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<title>Golang Pet Proyect 1</title>
+</head>
+<body>
+
+<h1>Golang Pet Proyect 1</h1>
+<p>Is a simple web service that use an in memory struct that save basic information.</p>
+<h2>Services</h2>
+<ol type="1">
+    <li><b>LIST OF USER:</b></li> Show a list of users that are in the memory.</br>
+    <b>TYPE: </b><i>GET</i></br>
+    <b>URL: </b><i>http://server_ip:server_port/user</i></br>
+    <b>RESPONSE: </b></br>
+    [
+    {
+        "id": 15281565,
+        "name": "Ramon Ramos",
+        "age": 38,
+        "birthCountry": "Venezuela"
+    },
+    {
+        "id": 15281567,
+        "name": "Fabiola Ramos",
+        "age": 37,
+        "birthCountry": "Venezuela"
+    }
+    ]</br>
+    <li><b>CREATE USER:</b></li> Include a new user in the memory database.</br>
+    <b>TYPE: </b><i>POST</i></br>
+    <b>URL: </b><i>http://server_ip:server_port/user</i></br>
+    <b>BODY: </b></br>
+    {
+        "id":15281565,          
+        "name":"Ramon Ramos",        
+        "age":38,        
+        "birthCountry":"Venezuela"
+    }</br>
+    <b>RESPONSE: </b></br>
+    {
+        "code": 200,
+        "message": "User Created"
+    }</br>
+    <li><b>FIND USER:</b></li> Find an user in the memory database.</br>
+    <b>TYPE: </b><i>GET</i></br>
+    <b>URL: </b><i>http://server_ip:server_port/user/ID</i></br>
+    <b>RESPONSE: </b></br>
+    {
+        "id": 15281565,
+        "name": "Ramon Ramos",
+        "age": 38,
+        "birthCountry": "Venezuela"
+    }</br>
+    or</br>
+    {
+        "code": 400,
+        "message": "User dont exist"
+    }</br>
+    <li><b>DELETE AN SPECIFIC USER:</b></li> Find and Delete an user in the memory database.</br>
+    <b>TYPE: </b><i>DELETE</i></br>
+    <b>URL: </b><i>http://server_ip:server_port/user/ID</i></br>
+    <b>RESPONSE: </b></br>
+    {
+        "code": 200,
+        "message": "The user deleted"
+    }</br>
+  </ol>
+</body>
+</html>
