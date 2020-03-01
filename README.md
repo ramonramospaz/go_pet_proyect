@@ -19,10 +19,10 @@ git push heroku master
 ```
 
 # Services
->*LIST OF USER:* Show a list of users that are in the memory.
->*TYPE:* GET
->*URL:* http://server_ip:server_port/user
->*RESPONSE:*
+>*LIST OF USER:* Show a list of users that are in the memory.<br>
+>*TYPE:* GET<br>
+>*URL:* http://server_ip:server_port/user<br>
+>*RESPONSE:*<br>
 ```json
 [
     {
@@ -39,10 +39,10 @@ git push heroku master
     }
 ]
 ```
->*CREATE USER:* Include a new user in the memory database.
->*TYPE:* POST
->*URL:*  http://server_ip:server_port/user
->*BODY:*
+>*CREATE USER:* Include a new user in the memory database.<br>
+>*TYPE:* POST<br>
+>*URL:*  http://server_ip:server_port/user<br>
+>*BODY:*<br>
 ```json
 {
         "id":15281565,          
@@ -58,10 +58,10 @@ git push heroku master
     "message": "User Created"
 }
 ```
->*FIND USER:* Find an user in the memory database.
->*TYPE:* GET
->*URL:* http://server_ip:server_port/user/ID
->*RESPONSE:*
+>*FIND USER:* Find an user in the memory database. <br>
+>*TYPE:* GET<br>
+>*URL:* http://server_ip:server_port/user/ID<br>
+>*RESPONSE:*<br>
 ```json
 {
         "id": 15281565,
@@ -77,10 +77,10 @@ git push heroku master
         "message": "User dont exist"
 }
 ```
->*DELETE AN SPECIFIC USER:* Find and Delete an user in the memory database.
->*TYPE:* DELETE
->*URL:* http://server_ip:server_port/user/ID
->*RESPONSE:*
+>*DELETE AN SPECIFIC USER:* Find and Delete an user in the memory database.<br>
+>*TYPE:* DELETE<br>
+>*URL:* http://server_ip:server_port/user/ID<br>
+>*RESPONSE:*<br>
 ```json
 {
     "code": 200,
