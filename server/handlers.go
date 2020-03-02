@@ -6,9 +6,8 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 	"twelve_webapp/controler"
-
-	"github.com/julienschmidt/httprouter"
 )
 
 func welcomePage(w http.ResponseWriter, r *http.Request) {
@@ -63,9 +62,15 @@ func listUsers(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(users)
 }
 
+func getParamFromURL(url string) (IDstr string) {
+	routes := strings.Split(url, "/")
+	IDstr = routes[len(routes)-1]
+	return
+}
+
 func findUserByID(w http.ResponseWriter, r *http.Request) {
-	params := httprouter.ParamsFromContext(r.Context())
-	ID, _ := strconv.Atoi(params.ByName("ID"))
+	IDstr := getParamFromURL(r.URL.String())
+	ID, _ := strconv.Atoi(IDstr)
 	user, err := controler.FindUserByID(ID)
 	w.Header().Add("Content-Type", "application/json")
 	if err == nil {
@@ -81,8 +86,8 @@ func findUserByID(w http.ResponseWriter, r *http.Request) {
 }
 
 func findAndDeleteUserByID(w http.ResponseWriter, r *http.Request) {
-	params := httprouter.ParamsFromContext(r.Context())
-	ID, _ := strconv.Atoi(params.ByName("ID"))
+	IDstr := getParamFromURL(r.URL.String())
+	ID, _ := strconv.Atoi(IDstr)
 	err := controler.FindAndDeleteUserByID(ID)
 	response := controler.Response{}
 	response.Code = 200
